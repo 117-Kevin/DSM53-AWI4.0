@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,12 +28,20 @@ class DatabaseSeeder extends Seeder
         \App\Models\product::factory(10)->create();
         \App\Models\food::factory(10)->create();
         \App\Models\fish::factory(10)->create();
-        \App\Models\file::factory(10)->create();
+        //\App\Models\file::factory(10)->create();
         
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Artisan::call('key:generate');
+        Schema::disableForeignKeyConstraints();
+        $this->call([
+            EstadosSeeder::class,
+            MunicipiosSeeder::class
+        ]);
+        Schema::enableForeignKeyConstraints();
     }
 }
