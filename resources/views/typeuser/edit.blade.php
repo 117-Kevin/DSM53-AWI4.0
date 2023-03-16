@@ -16,7 +16,8 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Tipos de usuario</li>
+                                    <li class="breadcrumb-item"><a href="/typeuser">Tipos de usuario</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Editar</li>
                                 </ol>
                             </nav>
                         </div>
@@ -24,7 +25,21 @@
                 </div>
             </div>
     <div class="container-fluid">
-        <h1>Hola desde edit</h1>
+        <h1>Editar campo</h1>
+        <div class="card-body">
+                
+                <form action="{{url('typeuser/' .$typeusers->id) }}" method="post">
+                    {!! csrf_field() !!}
+                    @method("PATCH")
+                    <label> Nombre:</label>
+                    <input class="form-control" type="text" name="name" id="name"  value="{{$typeusers->name}}">
+                    <div class="row">
+                        <a class="btn btn-danger m-3"  href="/typeuser" >Cancelar</a>
+                        <button type="submit" class="btn btn-primary m-3">Guadar</button>
+    
+                    </div>
+                </form>
+                </div>
     </div>
 
 @include('layouts.footer')

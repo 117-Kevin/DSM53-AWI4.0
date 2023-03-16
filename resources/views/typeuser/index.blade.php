@@ -3,6 +3,11 @@
 @include('layouts.menu')
 
 
+@include('layouts.header')
+
+@include('layouts.menu')
+
+
 @section('header')
 
 @endsection
@@ -37,7 +42,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Basic Table</h4>
+                                <h4 class="card-title">Tipo de usuario tabla</h4>
                                 <div class="table-responsive">
                                     <table class="table user-table no-wrap">
                                         <thead>

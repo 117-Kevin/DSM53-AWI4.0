@@ -16,7 +16,8 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Tipos de usuario</li>
+                                    <li class="breadcrumb-item"><a href="/typeuser">Tipos de usuario</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Mostrar</li>
                                 </ol>
                             </nav>
                         </div>
@@ -31,8 +32,37 @@
                     </div>
                 </div>
             </div>
-    <div class="container-fluid">
-        <h1>Hola desde show</h1>
-    </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Tipo de usuario</h4>
+                                <div class="table-responsive">
+                                    <table class="table user-table no-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0">Datos</th>
+                                                <th class="border-top-0">Informacion</th>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                            <td>Id</td>
+                                            <td>{{$typeusers->id}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tipo de usuario</td>
+                                            <td>{{$typeusers->name}}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                    <a class="btn btn-outline-success" m-3" href="/typeuser" ><i class="fas fa-arrow-left"></i></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 @include('layouts.footer')

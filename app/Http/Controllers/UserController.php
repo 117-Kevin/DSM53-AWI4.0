@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 Use App\Models\user;
+use App\Models\typeuser;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -21,7 +22,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.add');
+        $typeusers = typeuser::all('id','name');
+        // $users = user::all();$users = user::all();
+        return view('user.add', compact('typeusers'));
     }
 
     /**
@@ -32,7 +35,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+        user::create($input);
+        return redirect('user')->with('message','Se ha creado correctamente al estudiante');
     }
 
     /**
@@ -55,8 +60,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $typeusers = typeuser::all('id','name');
         $users = user::find($id);
-        return view('user.show')->with('users',$users);
+        return view('user.edit',compact('typeusers'))->with('users', $users);
     }
 
     /**
@@ -68,7 +74,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = user::findOrFail($id);
+        $input=$request->all();
+        $users->update($input);
+        return redirect('user')->with('message','Se ha actualizado el registro correctamente');
     }
 
     /**
@@ -79,7 +88,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $users = user::findOrFail($id);
+        $users->delete();
+        return redirect('user')->with('danger','correctamente el estudiante');
     }
 
     

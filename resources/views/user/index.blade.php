@@ -31,9 +31,52 @@
                     </div>
                 </div>
             </div>
-
-    <div class="container-fluid">
-        <h1>hola desde index</h1>
-    </div>
+<div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Tabla de usuarios </h4>
+                                <div class="table-responsive">
+                                    <table class="table user-table no-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0">Id</th>
+                                                <th class="border-top-0">Usuario</th>
+                                                <th class="border-top-0">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach($users as $user)
+                                        <tr>
+                                            <td>{{$user->id}}</td>
+                                            <td>{{$user->name}}</td>
+                                            <td>
+                                            <div class="row col-12">
+                                                <div class="col-4">                                                
+                                                    <a class="btn btn-success m-3" href="user/{{$user->id}}"  ><i class="fas fa-eye"></i></a>
+                                                </div>
+                                                <div class="col-4">
+                                                    <a class="btn btn-warning m-3" href="user/{{$user->id}}/edit"  ><i class=" fas fa-edit"></i></a>
+                                                </div>
+                                                <form action="user/{{$user->id}}" method="POST">
+                                                    {!! csrf_field() !!}
+                                                    @method("delete")
+                                                        
+                                                    <button class="btn btn-danger m-3" type="submit"><i class="fas fa-trash"></i></button>
+                                                    </form>
+                                                </div>
+                                           
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 @include('layouts.footer')

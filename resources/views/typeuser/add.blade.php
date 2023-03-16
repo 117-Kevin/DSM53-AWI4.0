@@ -16,7 +16,8 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Tipos de usuario</li>
+                                    <li class="breadcrumb-item"><a href="/typeuser">Tipos de usuario</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Agregar</li>
                                 </ol>
                             </nav>
                         </div>
@@ -24,7 +25,20 @@
                 </div>
             </div>
     <div class="container-fluid">
-        <h1>hola desde add</h1>
+        <h1>Agregar tipo de usuario</h1>
+        <div class="card-body">
+
+                    <form action="/typeuser" method="POST">
+                        {!!csrf_field()!!}
+                        <label for=""> Tipo de usuario:</label>
+                        <input class="form-control" type="text" name="name" id="name">
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary m-3">Guadar</button>
+
+                        </div>
+                    </form>
+                    <!-- </div> -->
+                </div>
     </div>
 
 @include('layouts.footer')
