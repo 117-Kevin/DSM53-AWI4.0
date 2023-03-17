@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 /* mandamos a llamar el modelo de Estados dos  */
-use App\Models\Estado;
+use App\Models\state;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -16,9 +16,9 @@ class EstadosSeeder extends Seeder
     public function run()
     {
         /* elimina todos los datos si es que la tabla tubiera datos  */
-        Estado::truncate();
+        state::truncate();
         /* inserta los estados */
-        Estado::insert([
+        state::insert([
             ['nombre' => 'Aguascalientes'],
             ['nombre' => 'Baja California'],
             ['nombre' => 'Baja California Sur'],

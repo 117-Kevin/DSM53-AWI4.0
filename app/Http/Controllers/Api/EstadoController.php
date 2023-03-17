@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Estado;
+use App\Models\state;
 use Illuminate\Http\Request;
 
 class EstadoController extends Controller
@@ -16,7 +16,7 @@ class EstadoController extends Controller
     public function index()
     {
         //
-        $estados = Estado::all();
+        $estados = state::all();
         return response()->json([$estados]);
     }
 

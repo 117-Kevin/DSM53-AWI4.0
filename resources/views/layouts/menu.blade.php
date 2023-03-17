@@ -54,7 +54,11 @@
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/expedient" aria-expanded="false"><i class="me-3 fas fa-file-medical"
-                                    aria-hidden="true"></i><span class="hide-menu">Expedientes</span></a></li>          
+                                    aria-hidden="true"></i><span class="hide-menu">Expedientes</span></a></li>   
+                        
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/estados" aria-expanded="false"><i class="me-3 fas fa-file-medical"
+                                    aria-hidden="true"></i><span class="hide-menu">Estados</span></a></li> 
                         
                         
                         

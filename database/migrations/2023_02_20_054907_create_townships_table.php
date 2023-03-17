@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('townships', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            /* realizo llave foranea */
+            $table->foreignId('state_id')->constrained('states', 'id');
+            $table->string('nombre');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

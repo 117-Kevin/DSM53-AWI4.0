@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\state;
 use App\Models\township;
 use Illuminate\Http\Request;
 
-class MunicipioController extends Controller
+class StateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,15 @@ class MunicipioController extends Controller
     public function index()
     {
         //
-        $municipio = township::all();
-        return response()->json([$municipio]);
+        $estados = state::all();
+        return view('states.index', ['estados'=>$estados]);
+    }
+
+    public function municipios($id)
+    {
+        //
+        $municipios = township::where('state_id', $id)->get();
+        return response()->json(['municipios'=>$municipios]);
     }
 
     /**

@@ -13,7 +13,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\FishController;
 use App\Http\Controllers\ExpedientController;
-
+use App\Http\Controllers\StateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +44,9 @@ Route::resource('product',ProductController::class);
 Route::resource('food',FoodController::class);
 Route::resource('fish',FishController::class);
 Route::resource('expedient',ExpedientController::class);
+Route::resource('estados',StateController::class);
+
+Route::get('municipios-estados/{id}', [StateController::class, 'municipios']);
 
 
 
