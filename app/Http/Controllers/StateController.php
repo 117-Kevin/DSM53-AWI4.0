@@ -24,7 +24,7 @@ class StateController extends Controller
     {
         //
         $municipios = township::where('state_id', $id)->get();
-        return response()->json(['municipios'=>$municipios]);
+        return response()->json($municipios);
     }
 
     /**

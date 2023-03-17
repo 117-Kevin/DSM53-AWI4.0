@@ -11,12 +11,12 @@
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Dietas</h3>
+                        <h3 class="page-title mb-0 p-0">Estado</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dietas</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Estados</li>
                                 </ol>
                             </nav>
                         </div>
@@ -55,26 +55,21 @@
 @include('layouts.footer')
 
 <script >
-    const selectElement = document.querySelector('.estado');
+    const estadoSelect = document.querySelector('.estado');
+    const municipioSelect = document.getElementById('mySelectMunicipio');
+    estadoSelect.addEventListener('change', (event) =>  {
+        let id = document.getElementById("mySelectEstado").value
+        fetch("http://dsm53-awi4.test/municipios-estados/" + id)
+        .then((response) => response.json())
+        .then((json) => this.generarmunicipios(json));
+    });
 
-selectElement.addEventListener('change', (event) =>  {
-    
-    let id = document.getElementById("mySelectEstado").value
-    fetch("http://dsm53-awi4.test/municipios-estados/" + id)
-    .then((response) => response.json())
-  .then((json) => this.generarmunicipios(json));
-
-});
-    
-
-    function generarmunicipios(datos){
-       
-       const arr = Array.from(datos);
-       console.log(arr)
-        datos.forEach(function(number) {
-    console.log(number);
-});
+    function generarmunicipios(data){
+        data.forEach(function(element) {
+            let opcion = document.createElement('option')
+            opcion.value = element.id
+            opcion.text = element.nombre
+            municipioSelect.add(opcion)
+        })
     }
-
-
 </script>
